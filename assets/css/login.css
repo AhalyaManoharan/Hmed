@@ -1,0 +1,100 @@
+body {
+  background: linear-gradient(to bottom, #00c6ff, #0072ff);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-card h2 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #2d2d2d;
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 50px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* Button Styles */
+.btn-login,
+.btn-reset,
+.btn-verify {
+  width: 100%;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 12px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+/* Checkbox label and links */
+.form-check-label,
+.forgot-pass,
+.signup-link {
+  font-size: 14px;
+}
+
+.forgot-pass {
+  float: right;
+  text-decoration: none;
+  color: #0072ff;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link a {
+  color: #0072ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Alert messages */
+.alert {
+  font-size: 14px;
+}
+
+/* Optional: back-link (for verify/reset pages) */
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  color: #0072ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
