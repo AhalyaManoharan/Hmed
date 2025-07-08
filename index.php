@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="">
-<meta name="theme-color" content="#ff8a00">
-<meta name="description" content="Job Portal HTML Template">
-<meta name="keywords" content="Employment, Naukri, Shine, Indeed, Job Posting, Job Provider">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>:: Job Word - Job Portal HTML Template ::</title>
-
-<!--  Favicon -->
-<link rel="shortcut icon" href="images/fav.png">
-
-<!-- CSS -->
-<link rel="stylesheet" href="css/bootstrap-grid.css">
-<link rel="stylesheet" href="css/icons.css">
-<link rel="stylesheet" href="css/style.css">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;display=swap" rel="stylesheet">   
-</head>
+<?php include("includes/header.php"); ?>
+<?php include("master.php"); ?>
 <body>
 <!-- Preloader Start -->
 <div class="preloader">
@@ -38,62 +15,7 @@
 <!-- Wrapper -->
 <div id="wrapper"> 
   <!-- Header Container -->
-  <header id="utf-header-container-block"> 
-    <div id="header">
-      <div class="container"> 
-        <div class="utf-left-side"> 
-          <div id="logo"> <a href="index.html"><img src="images/logo.png" alt=""></a> </div>
-          <nav id="navigation">
-            <ul id="responsive">
-              <li><a href="#" class="current">Home</a></li>
-               <li><a href="about-us.html"><i class=""></i> About Us</a></li>	
-              <li><a href="#">Find Jobs</a>
-                <ul class="dropdown-nav">
-                  <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> Browse Jobs</a> </li>
-                  <li><a href="browse-companies.html"><i class="icon-feather-chevron-right"></i> Browse Companies</a></li>
-                   
-                  </li>				  
-                </ul>
-              </li>
-              
-              <li><a href="login.html"><i class=""></i> Login</a></li>
-                  <li><a href="register.html"><i class=""></i> Sign Up</a></li>
-             
-			  <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-          <div class="clearfix"></div>                    
-        </div>
-        
-        <div class="utf-right-side"> 
-		  <div class="utf-header-widget-item"> <a href="#utf-signin-dialog-block" class="popup-with-zoom-anim log-in-button"><i class="icon-feather-log-in"></i> <span>Sign In</span></a> </div>	
-		  <div class="utf-header-widget-item"> 
-            <div class="utf-header-notifications user-menu">
-              <div class="utf-header-notifications-trigger user-profile-title"> 
-				<a href="#">
-					<div class="user-avatar status-online"><img src="images/user_small_1.jpg" alt=""> </div>	
-					<div class="user-name">Hi, Ahalya</div>	
-                </a> 
-			  </div>
-              <div class="utf-header-notifications-dropdown-block"> 
-				<ul class="utf-user-menu-dropdown-nav">
-                  <li><a href="dashboard.html"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
-				  <li><a href="dashboard-jobs-post.html"><i class="icon-line-awesome-user-secret"></i> Manage Jobs Post</a></li>
-				  <li><a href="dashboard-manage-jobs.html"><i class="icon-material-outline-group"></i> Manage Jobs</a></li>
-                  <li><a href="dashboard-bookmarks.html"><i class="icon-material-outline-star-border"></i> Bookmarks Jobs</a></li>
-				  <li><a href="dashboard-my-profile.html"><i class="icon-feather-user"></i> My Profile</a></li>
-                  <li><a href="index.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <span class="mmenu-trigger">
-			<button class="hamburger utf-hamburger-collapse-item" type="button"> <span class="utf-hamburger-box-item"> <span class="utf-hamburger-inner-item"></span> </span> </button>
-          </span> 
-		</div>
-      </div>
-    </div>
-  </header>
+
   <div class="clearfix"></div>
   <!-- Header Container / End -->
   
@@ -257,116 +179,56 @@
 			<div class="utf-headline-display-inner-item">Latest Jobs Post</div>
 			<p class="utf-slogan-text">Lorem Ipsum is simply dummy text printing and type setting industry Lorem Ipsum been industry standard dummy text ever since when unknown printer took a galley.</p>
           </div>
-          <div class="utf-listings-container-part compact-list-layout margin-top-35"> 
-            <a href="single-job-page.html" class="utf-job-listing utf-apply-button-item"> 
-				<div class="utf-job-listing-details"> 
-				  <div class="utf-job-listing-company-logo"> <img src="images/company_logo_1.png" alt=""> </div>
-				  <div class="utf-job-listing-description">
-				    <span class="dashboard-status-button utf-job-status-item green"><i class="icon-material-outline-business-center"></i> Full Time</span>
-					<h3 class="utf-job-listing-title">Web Designer, Graphic Designer, UI/UX Designer & Art</h3>
-					<div class="utf-job-listing-footer">
-					  <ul>
-						<li><i class="icon-feather-briefcase"></i> Graphic Designer</li>
-						<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
-						<li><i class="icon-material-outline-location-on"></i> Drive Potsdam, NY 676</li>
-						<li><i class="icon-material-outline-access-time"></i> 15 Minute Ago</li>
-					  </ul>
-					</div>
-				  </div>
-				  <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
-				</div>
-            </a> 
-            <a href="single-job-page.html" class="utf-job-listing utf-apply-button-item"> 
-				<div class="utf-job-listing-details"> 
-				  <div class="utf-job-listing-company-logo"> <img src="images/company_logo_2.png" alt=""> </div>
-				  <div class="utf-job-listing-description">
-				    <span class="dashboard-status-button utf-job-status-item green"><i class="icon-material-outline-business-center"></i> Full Time</span>
-					<h3 class="utf-job-listing-title">PHP Developer, Team of PHP & IT Co <span class="utf-verified-badge" title="Verified" data-tippy-placement="top"></span></h3>
-					<div class="utf-job-listing-footer">
-					  <ul>
-						<li><i class="icon-feather-briefcase"></i> UI/UX Designer</li>
-						<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
-						<li><i class="icon-material-outline-location-on"></i> Drive Potsdam, NY 676</li>
-						<li><i class="icon-material-outline-access-time"></i> 25 Minute Ago</li>
-					  </ul>
-					</div>
-				  </div>
-				  <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
-				</div>
-            </a> 
-            <a href="single-job-page.html" class="utf-job-listing utf-apply-button-item"> 
-				<div class="utf-job-listing-details"> 
-				  <div class="utf-job-listing-company-logo"> <img src="images/company_logo_3.png" alt=""> </div>
-				  <div class="utf-job-listing-description">
-				    <span class="dashboard-status-button utf-job-status-item yellow"><i class="icon-material-outline-business-center"></i> Part Time</span>
-					<h3 class="utf-job-listing-title">Website Developer & Software Developer</h3>
-					<div class="utf-job-listing-footer">
-					  <ul>
-						<li><i class="icon-feather-briefcase"></i> Software Developer</li>
-						<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
-						<li><i class="icon-material-outline-location-on"></i> Drive Potsdam, NY 676</li>
-						<li><i class="icon-material-outline-access-time"></i> 38 Minute Ago</li>
-					  </ul>
-					</div>
-				  </div>
-				  <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
-				</div>
-            </a> 
-            <a href="single-job-page.html" class="utf-job-listing utf-apply-button-item"> 
-				<div class="utf-job-listing-details"> 
-				  <div class="utf-job-listing-company-logo"> <img src="images/company_logo_4.png" alt=""> </div>
-				  <div class="utf-job-listing-description">
-				    <span class="dashboard-status-button utf-job-status-item green"><i class="icon-material-outline-business-center"></i> Full Time</span>
-					<h3 class="utf-job-listing-title">Application Developer & Web Designer <span class="utf-verified-badge" title="Verified" data-tippy-placement="top"></span></h3>
-					<div class="utf-job-listing-footer">
-					  <ul>
-						<li><i class="icon-feather-briefcase"></i> Web Developer</li>
-						<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
-						<li><i class="icon-material-outline-location-on"></i> Drive Potsdam, NY 676</li>
-						<li><i class="icon-material-outline-access-time"></i> 55 Minute Ago</li>
-					  </ul>
-					</div>
-				  </div>
-				  <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
-				</div>
-            </a> 
-            <a href="single-job-page.html" class="utf-job-listing utf-apply-button-item"> 
-				<div class="utf-job-listing-details"> 
-				  <div class="utf-job-listing-company-logo"> <img src="images/company_logo_5.png" alt=""> </div>
-				  <div class="utf-job-listing-description">
-				    <span class="dashboard-status-button utf-job-status-item green"><i class="icon-material-outline-business-center"></i> Full Time</span>
-					<h3 class="utf-job-listing-title">IT Department Manager & Blogger-Entrepenour</h3>
-					<div class="utf-job-listing-footer">
-					  <ul>
-						<li><i class="icon-feather-briefcase"></i> Android Developer</li>
-						<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
-						<li><i class="icon-material-outline-location-on"></i> Drive Potsdam, NY 676</li>
-						<li><i class="icon-material-outline-access-time"></i> 1 Days Ago</li>
-					  </ul>
-					</div>
-				  </div>
-				  <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
-				</div>
-            </a> 
-			<a href="single-job-page.html" class="utf-job-listing utf-apply-button-item"> 
-				<div class="utf-job-listing-details"> 
-				  <div class="utf-job-listing-company-logo"> <img src="images/company_logo_6.png" alt=""> </div>
-				  <div class="utf-job-listing-description">
-				    <span class="dashboard-status-button utf-job-status-item green"><i class="icon-material-outline-business-center"></i> Full Time</span>
-					<h3 class="utf-job-listing-title">Frontend/Backendd Developer</h3>
-					<div class="utf-job-listing-footer">
-					  <ul>
-						<li><i class="icon-feather-briefcase"></i> IOS Developer</li>
-						<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
-						<li><i class="icon-material-outline-location-on"></i> Drive Potsdam, NY 676</li>
-						<li><i class="icon-material-outline-access-time"></i> 1 Days Ago</li>
-					  </ul>
-					</div>
-				  </div>
-				  <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
-				</div>
-            </a>
-		  </div>
+         <div class="utf-listings-container-part compact-list-layout margin-top-35" id="job-listings-container">
+  <!-- Dynamic jobs will be appended here -->
+</div>
+
+<script>
+fetch("get_latest_jobs.php")
+  .then(res => res.json())
+  .then(jobs => {
+    const container = document.getElementById("job-listings-container");
+    container.innerHTML = ""; // Clear existing
+
+    jobs.forEach(job => {
+      const html = `
+        <a href="single-job-page.php?id=${job.id}" class="utf-job-listing utf-apply-button-item"> 
+          <div class="utf-job-listing-details"> 
+            <div class="utf-job-listing-company-logo"> 
+              <img src="images/company_logo_1.png" alt=""> 
+            </div>
+            <div class="utf-job-listing-description">
+              <span class="dashboard-status-button utf-job-status-item green">
+                <i class="icon-material-outline-business-center"></i> Full Time
+              </span>
+              <h3 class="utf-job-listing-title">${job.job_title}</h3>
+              <div class="utf-job-listing-footer">
+                <ul>
+                  <li><i class="icon-feather-briefcase"></i> ${job.company_name}</li>
+                  <li><i class="icon-material-outline-location-on"></i> ${job.job_location}</li>
+                  <li><i class="icon-material-outline-access-time"></i> ${timeAgo(job.created_at)}</li>
+                </ul>
+              </div>
+            </div>
+            <span class="list-apply-button ripple-effect">Browse Job <i class="icon-line-awesome-bullhorn"></i></span> 
+          </div>
+        </a>`;
+      container.insertAdjacentHTML("beforeend", html);
+    });
+  });
+
+function timeAgo(date) {
+  const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+  if (seconds < 60) return `${seconds} seconds ago`;
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes} minutes ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} hours ago`;
+  const days = Math.floor(hours / 24);
+  return `${days} days ago`;
+}
+</script>
+
 		  <div class="utf-centered-button margin-top-10">
 			<a href="jobs-list-layout-leftside.html" class="button utf-ripple-effect-dark utf-button-sliding-icon margin-top-20">Browse All Jobs <i class="icon-feather-chevron-right"></i></a> 
 		  </div>

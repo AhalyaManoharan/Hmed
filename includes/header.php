@@ -1,114 +1,163 @@
 <?php include("master.php"); ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$user_logged_in = isset($_SESSION['user_id']);
+$user_name = '';
+$user_image = 'images/user_default.jpg'; // Default profile image
+
+if ($user_logged_in) {
+    include("db_connect.php");
+    $user_id = $_SESSION['user_id'];
+    $user_type = $_SESSION['user_type'];
+
+    $stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($user = $result->fetch_assoc()) {
+        $user_name = $user['name'];
+        // Uncomment if you have a profile_pic column
+        // if (!empty($user['profile_pic'])) {
+        //     $user_image = 'uploads/profile/' . $user['profile_pic'];
+        // }
+    }
+    $stmt->close();
+}
+
+// Determine dashboard link
+$user_dashboard_link = '#';
+if ($user_logged_in) {
+    switch ($_SESSION['user_type']) {
+        case 'student':
+            $user_dashboard_link = 'dashboards/student/dashboard.php';
+            break;
+        case 'employer':
+            $user_dashboard_link = 'dashboards/employer/dashboard.php';
+            break;
+        case 'college':
+            $user_dashboard_link = 'dashboards/college/dashboard.php';
+            break;
+    }
+}
+?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$user_logged_in = isset($_SESSION['user_id']);
+$user_name = '';
+$user_image = 'images/user_default.jpg'; // Default profile image
+
+if ($user_logged_in) {
+    include("db_connect.php");
+    $user_id = $_SESSION['user_id'];
+    $user_type = $_SESSION['user_type'];
+
+    $stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($user = $result->fetch_assoc()) {
+        $user_name = $user['name'];
+        // Uncomment if you have a profile_pic column
+        // if (!empty($user['profile_pic'])) {
+        //     $user_image = 'uploads/profile/' . $user['profile_pic'];
+        // }
+    }
+    $stmt->close();
+}
+
+// Determine dashboard link
+$user_dashboard_link = '#';
+if ($user_logged_in) {
+    switch ($_SESSION['user_type']) {
+        case 'student':
+            $user_dashboard_link = 'dashboards/student/dashboard.php';
+            break;
+        case 'employer':
+            $user_dashboard_link = 'dashboards/employer/dashboard.php';
+            break;
+        case 'college':
+            $user_dashboard_link = 'dashboards/college/dashboard.php';
+            break;
+    }
+}
+?>
 <header id="utf-header-container-block"> 
-    <div id="header">
-      <div class="container"> 
-        <div class="utf-left-side"> 
-          <div id="logo"> <a href="index-1.html"><img src="../assets/images/logo.png" alt=""></a> </div>
-          <nav id="navigation">
-            <ul id="responsive">
-              <li><a href="#">Home</a>
-                <ul class="dropdown-nav">
-                  <li><a href="index-1.html"><i class="icon-feather-chevron-right"></i> Home Version One</a></li>
-                  <li><a href="index-2.html"><i class="icon-feather-chevron-right"></i> Home Version Two</a></li>
-				  <li><a href="index-3.html"><i class="icon-feather-chevron-right"></i> Home Version Three</a></li>
-				  <li><a href="index-4.html"><i class="icon-feather-chevron-right"></i> Home Version Four</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Find Jobs</a>
-                <ul class="dropdown-nav">
-                  <li><a href="#"><i class="icon-feather-chevron-right"></i> Browse Jobs</a>
-                    <ul class="dropdown-nav">
-                      <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> Jobs List Left Sidebar</a></li>
-                      <li><a href="jobs-list-layout-rightside.html"><i class="icon-feather-chevron-right"></i> Jobs List Right Sidebar</a></li>
-					  <li><a href="jobs-listing-with-map.html"><i class="icon-feather-chevron-right"></i> Jobs List With Map</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="browse-companies.html"><i class="icon-feather-chevron-right"></i> Browse Companies</a></li>
-                  <li><a href="single-job-page.html"><i class="icon-feather-chevron-right"></i> Jobs Detail Page</a></li>
-                  <li><a href="single-company-profile.html"><i class="icon-feather-chevron-right"></i> Company Profile Detail</a></li>
-				  <li><a href="#"><i class="icon-feather-chevron-right"></i> Freelancer Tasks</a>
-                    <ul class="dropdown-nav">
-                      <li><a href="freelancers-bidding-tasks-list.html"><i class="icon-feather-chevron-right"></i> Freelancer Bidding Task</a></li>
-				      <li><a href="freelancers-user-list-layout.html"><i class="icon-feather-chevron-right"></i> Freelancer User List</a></li>
-				      <li><a href="single-freelancers-task-page.html"><i class="icon-feather-chevron-right"></i> Freelancer Task Detail</a></li>
-					  <li><a href="single-freelancer-profile.html"><i class="icon-feather-chevron-right"></i> Freelancer Profile Detail</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#">User Panel</a>
-                <ul class="dropdown-nav">
-                  <li><a href="dashboard.html"><i class="icon-feather-chevron-right"></i> Dashboard</a></li>
-                  <li><a href="dashboard-jobs-post.html"><i class="icon-feather-chevron-right"></i> Manage Jobs Post</a></li> 
-				  <li><a href="dashboard-manage-jobs.html"><i class="icon-feather-chevron-right"></i> Manage Jobs</a></li>
-				  <li><a href="dashboard-manage-resume.html"><i class="icon-feather-chevron-right"></i> Manage Resume</a></li>  
-				  <li><a href="dashboard-bookmarks.html"><i class="icon-feather-chevron-right"></i> Bookmarks Jobs</a></li>
-				  <li><a href="dashboard-manage-tasks.html"><i class="icon-feather-chevron-right"></i> Freelancer Tasks</a>
-                    <ul class="dropdown-nav">
-                      <li><a href="dashboard-freelancer-manage-tasks-list.html"><i class="icon-feather-chevron-right"></i> Freelancer Manage Tasks</a></li>
-                      <li><a href="dashboard-manage-bidders-list.html"><i class="icon-feather-chevron-right"></i> Freelancer Manage Bidders</a></li>
-                      <li><a href="dashboard-freelancer-active-bids.html"><i class="icon-feather-chevron-right"></i> Freelancer Active Bids</a></li>
-                      <li><a href="dashboard-freelancer-add-post-bids.html"><i class="icon-feather-chevron-right"></i> Freelancer Post Bids</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="dashboard-reviews.html"><i class="icon-feather-chevron-right"></i> Reviews</a></li>
-                  <li><a href="dashboard-my-profile.html"><i class="icon-feather-chevron-right"></i> My Profile</a></li>
-                </ul>
-              </li>
-              <li><a href="#" class="current">Pages</a>
-                <ul class="dropdown-nav">
-				  <li class="active"><a href="about-us.html"><i class="icon-feather-chevron-right"></i> About Us</a></li>	
-				  <li><a href="login.html"><i class="icon-feather-chevron-right"></i> Login</a></li>
-                  <li><a href="register.html"><i class="icon-feather-chevron-right"></i> Sign Up</a></li>
-				  <li><a href="checkout-page.html"><i class="icon-feather-chevron-right"></i> Order Checkout</a></li>
-				  <li><a href="order-confirmation.html"><i class="icon-feather-chevron-right"></i> Order Confirmation</a></li>
-				  <li><a href="invoice-template.html"><i class="icon-feather-chevron-right"></i> Invoice Template</a></li>
-				  <li><a href="user-elements.html"><i class="icon-feather-chevron-right"></i> User Elements</a></li>
-                  <li><a href="icons-cheatsheet.html"><i class="icon-feather-chevron-right"></i> Icons Cheatsheet</a></li>				  
-				  <li><a href="faq-page.html"><i class="icon-feather-chevron-right"></i> FAQ Page</a></li>
-                  <li><a href="pages-404.html"><i class="icon-feather-chevron-right"></i> 404 Page</a></li>
-                </ul>
-              </li>
-			  <li><a href="#">Blog</a>
-                <ul class="dropdown-nav">
-                  <li><a href="blog-right-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog List Right Sidebar</a></li>
-				  <li><a href="blog-left-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog List Left Sidebar</a></li>
-				  <li><a href="blog-post-right-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog Detail Right Sidebar</a></li>
-				  <li><a href="blog-post-left-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog Detail Left Sidebar</a></li>                  
-                </ul>
-              </li>
-			  <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-          <div class="clearfix"></div>                    
+  <div id="header">
+    <div class="container"> 
+      <div class="utf-left-side"> 
+        <div id="logo"> 
+          <a href="index.php"><img src="../assets/images/logo.png" alt=""></a> 
         </div>
-        
-        <div class="utf-right-side"> 
-		  <div class="utf-header-widget-item"> <a href="#utf-signin-dialog-block" class="popup-with-zoom-anim log-in-button"><i class="icon-feather-log-in"></i> <span>Sign In</span></a> </div>	
-          <div class="utf-header-widget-item"> 
-            <div class="utf-header-notifications user-menu">
-              <div class="utf-header-notifications-trigger user-profile-title"> 
-				<a href="#">
-					<div class="user-avatar status-online"><img src="images/user_small_1.jpg" alt=""> </div>	
-					<div class="user-name">Hi, John!</div>	
-                </a> 
-			  </div>
+
+        <nav id="navigation">
+          <ul id="responsive">
+            <li><a href="/hmed/index.php">Home</a></li>
+           
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="clearfix"></div>                    
+      </div>
+
+      <div class="utf-right-side"> 
+        <?php if (!$user_logged_in): ?>
+  <div class="utf-header-widget-item"> 
+    <a href="/hmed/login/index.php" class="log-in-button">
+      <i class="icon-feather-log-in"></i> <span>Sign In</span>
+    </a> 
+  </div>
+<?php endif; ?>
+
+
+        <div class="utf-header-widget-item"> 
+          <div class="utf-header-notifications user-menu">
+            <div class="utf-header-notifications-trigger user-profile-title"> 
+              <a href="<?php echo $user_dashboard_link; ?>">
+                <div class="user-avatar status-online">
+                  <img src="<?php echo $user_image; ?>" alt="User">
+                </div>
+                <div class="user-name">
+                  <?php echo $user_logged_in ? "Hi, " . htmlspecialchars($user_name) . "!" : "Welcome Guest"; ?>
+                </div>
+              </a>
+            </div>
+
+            <?php if ($user_logged_in): ?>
               <div class="utf-header-notifications-dropdown-block"> 
-				<ul class="utf-user-menu-dropdown-nav">
-                  <li><a href="dashboard.html"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
-				  <li><a href="dashboard-jobs-post.html"><i class="icon-line-awesome-user-secret"></i> Manage Jobs Post</a></li>
-				  <li><a href="dashboard-manage-jobs.html"><i class="icon-material-outline-group"></i> Manage Jobs</a></li>
-                  <li><a href="dashboard-bookmarks.html"><i class="icon-material-outline-star-border"></i> Bookmarks Jobs</a></li>
-				  <li><a href="dashboard-my-profile.html"><i class="icon-feather-user"></i> My Profile</a></li>
-                  <li><a href="index-1.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+                <ul class="utf-user-menu-dropdown-nav">
+                  <?php if ($_SESSION['user_type'] == 'student'): ?>
+                    <li><a href="dashboards/student/dashboard.php"><i class="icon-feather-user"></i> My Profile</a></li>
+                  <?php elseif ($_SESSION['user_type'] == 'employer'): ?>
+                    <li><a href="dashboards/employer/dashboard-jobs-post.php"><i class="icon-line-awesome-user-secret"></i> Post Job</a></li>
+                    <li><a href="dashboards/employer/dashboard.php"><i class="icon-material-outline-group"></i> Manage Jobs</a></li>
+                  <?php elseif ($_SESSION['user_type'] == 'college'): ?>
+                    <li><a href="dashboards/college/dashboard.php"><i class="icon-material-outline-dashboard"></i> College Dashboard</a></li>
+                  <?php endif; ?>
+                  <li><a href="/Hmed/logout/logout.php"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+
                 </ul>
               </div>
-            </div>
+            <?php endif; ?>
           </div>
-          <span class="mmenu-trigger">
-			<button class="hamburger utf-hamburger-collapse-item" type="button"> <span class="utf-hamburger-box-item"> <span class="utf-hamburger-inner-item"></span> </span> </button>
-          </span> 
-		</div>
+        </div>
+
+        <span class="mmenu-trigger">
+          <button class="hamburger utf-hamburger-collapse-item" type="button"> 
+            <span class="utf-hamburger-box-item"> <span class="utf-hamburger-inner-item"></span> </span> 
+          </button>
+        </span> 
       </div>
     </div>
-  </header>
+  </div>
+</header>
+
+

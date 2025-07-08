@@ -1,8 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'student') {
-  header("Location: ../../login/login.php?role=student");
-  exit;
+include("../../includes/db_connect.php");
+
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'employer') {
+    header("Location: ../../login/login.php?role=employer");
+    exit;
 }
 ?>
 <?php
@@ -16,7 +18,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $userData = $result->fetch_assoc();
 
-$studentName = $userData['name'];
+$employerName = $userData['name'];
 $profileImage = !empty($userData['profile_image']) ? $userData['profile_image'] : "images/user-avatar-placeholder.png";
 ?>
 <?php
@@ -114,8 +116,8 @@ if (!empty($user['profile_image'])) {
   <div id="profileUploadStatus" class="mt-2 text-success"></div>
 </div>
   <div class="user-profile-text px-5">
-    <span class="fullname"><?php echo htmlspecialchars($studentName); ?></span>
-    <span class="user-role">Student</span>
+    <span class="fullname"><?php echo htmlspecialchars($employerName); ?></span>
+    <span class="user-role">employer</span>
   </div>
 </div>
 
@@ -126,7 +128,7 @@ if (!empty($user['profile_image'])) {
 				<li><a href="dashboard-manage-resume.html"><i class="icon-material-outline-supervisor-account"></i> Manage Resume</a></li>
 				<li><a href="dashboard-bookmarks.html"><i class="icon-feather-heart"></i> Bookmarks Jobs</a></li>
 				<li class="active"><a href="dashboard-my-profile.php"><i class="icon-feather-user"></i> My Profile</a></li>
-                <li><a href="../../logout/logout.php"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+                <li><a href="index-1.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
               </ul>              
             </div>
           </div>          
@@ -151,7 +153,7 @@ if (!empty($user['profile_image'])) {
 		</div>		
       </div>
 	  <div class="utf-dashboard-content-inner-aera">   
-        <?php include("dashboard-my-profile.php"); ?>
+        <?php include("employer-post-job.php"); ?>
 		
         <div class="utf-dashboard-footer-spacer-aera"></div>
         <div class="utf-small-footer margin-top-15">

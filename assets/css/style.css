@@ -160,6 +160,7 @@ button {
 a {
 	color: #66676b;
 	transition: 0.3s;
+	text-decoration: none !important;
 }
 a, button {
 	outline: none !important;
